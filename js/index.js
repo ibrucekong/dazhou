@@ -5,8 +5,8 @@ let styleUrl = pre + '/js/element-ui/theme-chalk/index.min.css'
 //判断调用哪个js
 if (location.host === 'notion.brucekong.com') {
   // 使用在线的
-  jsUrlArr = ['https://cdn.jsdelivr.net/npm/vue@2.7.14', 'https://unpkg.com/element-ui/lib/index.js', 'https://unpkg.com/pinyin-pro']
-  styleUrl = 'https://unpkg.com/element-ui/lib/theme-chalk/index.css'
+  jsUrlArr = ['https://cdn.jsdelivr.net/npm/vue@2.7.14', 'https://cdn.jsdelivr.net/npm/element-ui@2.15.14/lib/index.min.js', 'https://cdn.jsdelivr.net/npm/pinyin-pro@3.18.4/dist/index.min.js']
+  styleUrl = 'https://cdn.jsdelivr.net/npm/element-ui@2.15.14/lib/theme-chalk/index.min.css'
 }
 
 loadScript(jsUrlArr,function(){
