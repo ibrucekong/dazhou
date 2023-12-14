@@ -23,7 +23,7 @@
     }
     function createMap(){ 
       map = new BMap.Map("map"); 
-      map.centerAndZoom(new BMap.Point(107.51849,31.191228),19);
+      map.centerAndZoom(new BMap.Point(107.518436,31.191151),19);
     }
     function setMapEvent(){
       map.enableScrollWheelZoom();
@@ -38,7 +38,7 @@
     }
     function addMapOverlay(){
       var markers = [
-        {content:"",title:"升华国际大酒店",imageOffset: {width:0,height:3},position:{lat:31.191228,lng:107.51849}}
+        {content:"",title:"升华国际大酒店",imageOffset: {width:0,height:3},position:{lat:31.191236,lng:107.518494}}
       ];
       for(var index = 0; index < markers.length; index++ ){
         var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
