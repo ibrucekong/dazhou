@@ -1,5 +1,5 @@
-[v-cloak]{
-  display: none;
+[v-cloak] {
+  display:none !important;
 }
 
 html, body {
