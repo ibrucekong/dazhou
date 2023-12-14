@@ -6,16 +6,23 @@
     <!--引用百度地图API-->
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xXEzzf2PDlS5K7aGXS0xp7oY"></script>
 	<style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 		.BMap_cpyCtrl,
-		.anchorBL, 
-		.BMap_scaleCtrl, 
-		.BMap_omCtrl, 
+		.anchorBL,
+		.BMap_scaleCtrl,
+		.BMap_omCtrl,
 		.BMap_stdMpCtrl {
 			display: none!important;
 		}
 	</style>
   </head>
-  
+
   <body>
     <!--百度地图容器-->
     <div style="width:400px;height:300px;border:#ccc solid 1px;font-size:12px" id="map"></div>
@@ -28,8 +35,8 @@
       addMapControl();//向地图添加控件
       addMapOverlay();//向地图添加覆盖物
     }
-    function createMap(){ 
-      map = new BMap.Map("map"); 
+    function createMap(){
+      map = new BMap.Map("map");
       map.centerAndZoom(new BMap.Point(107.518436,31.191151),19);
     }
     function setMapEvent(){
