@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notion | Bruce Kong</title>
+  <link rel='stylesheet' href='css/index.css'>
+  <!-- 引入utils -->
+  <script src='js/utils.js'></script>
+  <script src='js/time-animation.js'></script>
+  <script src='js/index.js'></script>
+</head>
+<body>
+<div id='app'>
+  <div class='top'>
+    <div id='time' class='time'></div>
+    <div class='search'>
+      <el-input size='medium'
+                v-model="search"
+                @keydown.enter.native="handlerSearch()"
+                v-on:keyup.native="handlerSearch"
+                placeholder="请输入搜索关键词">
+        <i slot="prefix" class="el-input__icon el-icon-search"></i>
+      </el-input>
+    </div>
+  </div>
+  <div class='list'>
+    <div class='item'
+         v-for='comp in components'
+         @click='setUrl(comp.url)'
+         :index='comp.id'
+         :title='comp.name'
+    >
+      <div class='item-context'>{{comp.name}}</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
