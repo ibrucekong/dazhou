@@ -2,11 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
-    <meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图" />
-    <title>百度地图API自定义地图</title>
+    <title>达州数字经济产业园</title>
     <!--引用百度地图API-->
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xXEzzf2PDlS5K7aGXS0xp7oY"></script>
+	<style>
+		.BMap_cpyCtrl,
+		.anchorBL, 
+		.BMap_scaleCtrl, 
+		.BMap_omCtrl, 
+		.BMap_stdMpCtrl {
+			display: none!important;
+		}
+	</style>
   </head>
   
   <body>
@@ -23,7 +30,7 @@
     }
     function createMap(){ 
       map = new BMap.Map("map"); 
-      map.centerAndZoom(new BMap.Point(107.501802,31.150836),19);
+      map.centerAndZoom(new BMap.Point(107.501802,31.150836),17);
     }
     function setMapEvent(){
       map.enableScrollWheelZoom();
