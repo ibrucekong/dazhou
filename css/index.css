@@ -8,6 +8,7 @@ html, body {
   padding: 0;
   margin: 0;
   overflow: hidden;
+  user-select: none;
 }
 
 #app {
@@ -32,6 +33,11 @@ html, body {
   flex: 1;
 }
 
+.tips {
+  color: lightgrey;
+  text-align: center;
+}
+
 .list {
   margin-top: 20px;
   display: flex;
@@ -45,6 +51,7 @@ html, body {
   width: calc((100% - 60px) / 4);
   height: 80px;
   background: #f5f7fa;
+  color: #858585;
 
   cursor: pointer;
 
@@ -59,8 +66,56 @@ html, body {
 
 .item:hover {
   background: #e0e0e0;
+  color: #2F2F2F;
 }
 
-.item-context {
-  color: #858585;
+@media screen and (max-width: 480px) {
+  #time {
+    display: none;
+  }
+
+  .item {
+    padding: 0 30px;
+    width: calc((100% - 60px) / 1);
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .item:nth-of-type(n+0) {
+    margin-right: 0;
+  }
+
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body, #app {
+    background: black;
+  }
+
+  .el-divider {
+    background: grey;
+  }
+
+  .el-divider__text {
+    background: black;
+    color: white;
+  }
+
+  .el-input {
+    background: black;
+  }
+
+  .el-input > input {
+    background: black!important;
+    border-color: #3f3b3b !important;
+    color: white!important;
+  }
+
+  .item {
+    background: #858585;
+    color: #f5f7fa;
+  }
 }

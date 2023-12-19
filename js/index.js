@@ -23,22 +23,34 @@ function initial() {
         search: '',
         // 组件清单
         defaultComponents: [{
-          id: 0,
           name: '达州创新大赛地址',
-          url: '/dazhou/address/'
+          url: '/dazhou/address.html'
         }, {
-          id: 1,
           name: '达州创新大赛酒店',
-          url: '/dazhou/hotel/'
+          url: '/dazhou/hotel.html'
+        }, {
+          name: '时间动画',
+          url: '/tools/time.html'
         }],
         components: []
       }
     },
     created() {
+      this.defaultComponents.forEach((item,index) => {
+        item.id = index++
+      })
       this.defaultComponents.forEach(com => {
         com.pinyin = (pinyin(com.name, { toneType: 'none' }))
         com.pinyinTrim = (pinyin(com.name, { toneType: 'none' })).replace(/\s*/g,"")
       })
+      // 禁止右键菜单
+      document.oncontextmenu = function(){ return false; }
+      // 禁止文字选择
+      document.onselectstart = function(){ return false; }
+      // 禁止复制
+      document.oncopy = function(){ return false; }
+      // 禁止剪切
+      document.oncut = function(){ return false; }
     },
     mounted() {
       // 执行初始化
@@ -69,15 +81,46 @@ function initial() {
           })
         }
       },
-      setUrl(url) {
-        location.href = url
+      setUrl(el, url) {
+        if (el.ctrlKey) return
+
+        let pathname = location.pathname
+        if (pathname.includes('.html') && pathname.lastIndexOf('.html') !== -1) {
+          let temp = pathname.split('/')
+          temp.pop()
+          pathname = temp.join('/')
+        }
+        url = location.origin + pathname + url
+        open(url, el.altKey ? '_blank' : 'self')
+      },
+      async copy(el, url) {
+        if (!el.ctrlKey) return
+
+        let pathname = location.pathname
+        if (pathname.includes('.html') && pathname.lastIndexOf('.html') !== -1) {
+          let temp = pathname.split('/')
+          temp.pop()
+          pathname = temp.join('/')
+        }
+        url = location.origin + pathname + url
+        // const image = await fetch("kitten.png");
+        const text = new Blob([url], {type: "text/plain"});
+        const item = new ClipboardItem({
+          "text/plain": text,
+          // "image/png": image,
+        })
+        let response = await navigator.clipboard.write([item])
+        this.$message({
+          message: '复制成功',
+          type: 'success'
+        })
       },
       renderTime() {
         let cr = new ClockRender('time', 100, 145)
         cr.render()
         let inter = setInterval(e => {
           cr.setColor(this.getRandomColor())
-        }, 1000)
+        }, 60 * 1000)
       },
       getRandomColor(){
         return  '#' + (function(color){

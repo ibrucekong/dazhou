@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>时间 | Bruce Kong</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <style>
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      user-select: none;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #time {
+      width: 200px;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+<div id='time'></div>
+<script src='../js/time-animation.js'></script>
+<script>
+  document.body.onload = () => {
+    renderTime()
+  }
+  function renderTime() {
+    let cr = new ClockRender('time', 500, 725)
+    cr.render()
+    let inter = setInterval(e => {
+      cr.setColor(getRandomColor())
+    }, 60 * 1000)
+  }
+  function getRandomColor(){
+    return  '#' + (function(color){
+      return (color +=  '0123456789abcdef'[Math.floor(Math.random()*16)])
+      && (color.length === 6) ?  color : arguments.callee(color)
+    })('')
+  }
+</script>
+</body>
+</html>

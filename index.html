@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Notion | Bruce Kong</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="shortcut icon" href="favicon.png" type="image/x-png">
   <link rel='stylesheet' href='css/index.css'>
   <!-- 引入utils -->
@@ -24,12 +25,14 @@
       </el-input>
     </div>
   </div>
+  <div class='tips'>* 鼠标点击卡片预览，按住Alt+鼠标点击卡片打开新页面预览，按住Ctrl+鼠标点击可复制卡片地址</div>
   <div class='list'>
     <div class='item'
          v-for='comp in components'
-         @click='setUrl(comp.url)'
+         @click='setUrl($event, comp.url)'
+         @click.alt.exact='setUrl($event, comp.url)'
+         @click.ctrl.exact='copy($event, comp.url)'
          :index='comp.id'
-         :title='comp.name'
     >
       <div class='item-context'>{{comp.name}}</div>
     </div>
