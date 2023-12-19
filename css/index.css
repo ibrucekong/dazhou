@@ -100,7 +100,7 @@ html, body {
 
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (max-width: 850px) and (orientation: landscape) {
   /* 横屏 */
   .item {
     padding: 0 10px;
