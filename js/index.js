@@ -89,9 +89,10 @@ function initial() {
           let temp = pathname.split('/')
           temp.pop()
           pathname = temp.join('/')
+          pathname = pathname.replace("//", "/")
         }
         url = location.origin + pathname + url
-        open(url, el.altKey ? '_blank' : 'self')
+        window.open(url, el.altKey ? '_blank' : '_self')
       },
       async copy(el, url) {
         if (!el.ctrlKey) return
@@ -101,6 +102,7 @@ function initial() {
           let temp = pathname.split('/')
           temp.pop()
           pathname = temp.join('/')
+          pathname = pathname.replace("//", "/")
         }
         url = location.origin + pathname + url
         // const image = await fetch("kitten.png");
