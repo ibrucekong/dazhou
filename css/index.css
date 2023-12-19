@@ -30,6 +30,12 @@ html, body {
   height: 60px;
   width: 100%;
   display: flex;
+
+  position: sticky;
+  top: 0;
+  padding-top: 10px;
+  z-index: 99;
+  background: white;
 }
 
 .search {
@@ -47,6 +53,9 @@ html, body {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+
+  position: sticky;
+  top: 60px;
 }
 
 .item {
@@ -110,6 +119,10 @@ html, body {
 
 @media (prefers-color-scheme: dark) {
   html, body, #app {
+    background: black;
+  }
+
+  .top {
     background: black;
   }
 
