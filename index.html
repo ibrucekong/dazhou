@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Notion | Bruce Kong</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="shortcut icon" href="favicon.png" type="image/x-png">
   <link rel='stylesheet' href='css/index.css'>
   <!-- 引入utils -->
@@ -14,12 +15,13 @@
 <body>
 <div id='app' v-cloak>
   <div class='top'>
-    <div id='time' class='time'></div>
     <div class='search'>
-      <el-input size='medium'
+      <el-input ref='search'
+                size='medium'
                 v-model="search"
                 @keydown.enter.native="handlerSearch()"
                 v-on:keyup.native="handlerSearch"
+                @blur="$event.target.focus()"
                 placeholder="请输入搜索关键词">
         <i slot="prefix" class="el-input__icon el-icon-search"></i>
       </el-input>

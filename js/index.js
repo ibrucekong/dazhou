@@ -31,6 +31,15 @@ function initial() {
         }, {
           name: '时间动画',
           url: '/tools/time.html'
+        }, {
+          name: '达州创新大赛地址',
+          url: '/dazhou/address.html'
+        }, {
+          name: '达州创新大赛酒店',
+          url: '/dazhou/hotel.html'
+        }, {
+          name: '时间动画',
+          url: '/tools/time.html'
         }],
         components: []
       }
@@ -53,6 +62,8 @@ function initial() {
       document.oncut = function(){ return false; }
     },
     mounted() {
+      // 让搜索框获取焦点
+      this.$refs.search.focus()
       // 执行初始化
       this.handlerSearch()
       // 渲染时间
@@ -118,7 +129,7 @@ function initial() {
         })
       },
       renderTime() {
-        let cr = new ClockRender('time', 100, 145)
+        let cr = new ClockRender('time', 260, 130)
         cr.render()
         let inter = setInterval(e => {
           cr.setColor(this.getRandomColor())

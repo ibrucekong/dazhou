@@ -1,6 +1,6 @@
 /**
  * 时间动画
- * @param id 容器ID
+ * @param id DOM容器的ID
  * @param width 容器的宽度，默认280
  * @param height 容器的高度，默认145
  * @param color 时间颜色，默认蓝色
@@ -10,6 +10,10 @@ function ClockRender(id, width, height, color) {
   this.id = id
   this.color = color
 
+  if (width < 260 || height < 130) {
+    alert('时间宽度不能小于300px，高度不能小于130px')
+    return
+  }
   let winWidth = document.body.clientWidth
   let winHeight = window.innerHeight
   // 如果传的宽高大于窗口，则按照窗口的
@@ -20,7 +24,7 @@ function ClockRender(id, width, height, color) {
       width = winWidth - 20
     }
   }
-  if (window.orientation === 90 || window.orientation === -90 ){
+  if (window.orientation === 90 || window.orientation === -90) {
     // 横屏状态！
     // 常规页面，以高为准(适当减少一点)，宽度自适应
     if (height > winHeight) {
@@ -45,7 +49,6 @@ function ClockRender(id, width, height, color) {
   this.balls = []
   this.colors = ['#ffcc00', '#ff00cc', '#ccff00', '#cc00ff', '#00ffcc', '#00ccff', '#5a5ea8']
 }
-
 ClockRender.prototype.render = function () {
   let id = this.id
   let width = this.width || 280
@@ -64,16 +67,16 @@ ClockRender.prototype.render = function () {
   let WINDOW_WIDTH = width, WINDOW_HEIGHT = height, MARGIN_LEFT, MARGIN_TOP, RADIUS
 
   if (document.readyState === 'complete') {
-    init()
+    _init()
   } else {
     document.onreadystatechange = () => {
       if (document.readyState === 'complete') {
-        init()
+        _init()
       }
     }
   }
 
-  function init() {
+  function _init() {
     MARGIN_LEFT = Math.round(WINDOW_WIDTH / 10)
     MARGIN_TOP = Math.round(WINDOW_HEIGHT / 5)
     RADIUS = Math.round(WINDOW_WIDTH * 4 / 5 / 108) - 1
