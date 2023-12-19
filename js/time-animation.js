@@ -9,6 +9,24 @@
 function ClockRender(id, width, height, color) {
   this.id = id
   this.color = color
+
+  let winWidth = document.body.clientWidth
+  let winHeight = window.innerHeight
+  // 如果传的宽高大于窗口，则按照窗口的
+  if (window.orientation === 180 || window.orientation === 0) {
+    // 竖屏状态！
+    // 一般为手机端查看，以宽为准(适当减少一点)，高度自适应
+    if (width > winWidth) {
+      width = winWidth - 20
+    }
+  }
+  if (window.orientation === 90 || window.orientation === -90 ){
+    // 横屏状态！
+    // 常规页面，以高为准(适当减少一点)，宽度自适应
+    if (height > winHeight) {
+      height = winHeight - 20
+    }
+  }
   // 如果width/height > 2 或 width/height < 1.9，则提醒并自动优化
   if (width / height > 2 || width / height < 1.9) {
     let radio = 1.93
@@ -43,7 +61,7 @@ ClockRender.prototype.render = function () {
   let curShowTimeSeconds = this.curShowTimeSeconds
   let balls = this.balls
   let colors = this.colors
-  let WINDOW_WIDTH, WINDOW_HEIGHT, MARGIN_LEFT, MARGIN_TOP, RADIUS
+  let WINDOW_WIDTH = width, WINDOW_HEIGHT = height, MARGIN_LEFT, MARGIN_TOP, RADIUS
 
   if (document.readyState === 'complete') {
     init()
@@ -56,8 +74,6 @@ ClockRender.prototype.render = function () {
   }
 
   function init() {
-    WINDOW_WIDTH = document.body.clientWidth
-    WINDOW_HEIGHT = window.innerHeight
     MARGIN_LEFT = Math.round(WINDOW_WIDTH / 10)
     MARGIN_TOP = Math.round(WINDOW_HEIGHT / 5)
     RADIUS = Math.round(WINDOW_WIDTH * 4 / 5 / 108) - 1
