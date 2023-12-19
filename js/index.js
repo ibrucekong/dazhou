@@ -31,33 +31,6 @@ function initial() {
         }, {
           name: '时间动画',
           url: '/tools/time.html'
-        }, {
-          name: '达州创新大赛地址',
-          url: '/dazhou/address.html'
-        }, {
-          name: '达州创新大赛酒店',
-          url: '/dazhou/hotel.html'
-        }, {
-          name: '时间动画',
-          url: '/tools/time.html'
-        },{
-          name: '达州创新大赛地址',
-          url: '/dazhou/address.html'
-        }, {
-          name: '达州创新大赛酒店',
-          url: '/dazhou/hotel.html'
-        }, {
-          name: '时间动画',
-          url: '/tools/time.html'
-        }, {
-          name: '达州创新大赛地址',
-          url: '/dazhou/address.html'
-        }, {
-          name: '达州创新大赛酒店',
-          url: '/dazhou/hotel.html'
-        }, {
-          name: '时间动画',
-          url: '/tools/time.html'
         }],
         components: []
       }
