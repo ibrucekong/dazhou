@@ -9,6 +9,11 @@ html, body {
   margin: 0;
   overflow: hidden;
   user-select: none;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 #app {
@@ -84,6 +89,23 @@ html, body {
     margin-right: 0;
   }
 
+}
+
+@media screen and (orientation: landscape) {
+  /* 横屏 */
+  .item {
+    padding: 0 10px;
+    width: calc((100% - 60px) / 2);
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .item:nth-of-type(2n+0) {
+    margin-right: 0;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
